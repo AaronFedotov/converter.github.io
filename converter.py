@@ -1,8 +1,6 @@
 from flask import Flask, render_template, request
-import random, threading, webbrowser
 from flask_wtf import FlaskForm
-from wtforms.fields import IntegerField, StringField, TextField, TextAreaField
-import re
+from wtforms.fields import IntegerField, StringField, TextAreaField
 
 def all_caps(content,separator=','):	
 	
@@ -38,6 +36,7 @@ def first_capital(content):
 			result.append(word)
 		return ' '.join(result)
 	
+	content = content.lower()
 	words  = content.split(' ')	
 	words = [cap(word).strip() for word in words]
 	words = ' '.join(words)
